@@ -1,5 +1,7 @@
 @echo off&title ÅúÁ¿ÖØÃüÃûÎÄ¼ş&color 0b&set filenumber=0&set success=0&set fail=0&Setlocal EnableDelayedExpansion
-set sharepath=%cd%
+set /p sharepath=ÇëÍÏÈëÒªÖØÃüÃûµÄÎÄ¼şËùÔÚµÄÎÄ¼ş¼Ğ£º
+copy Error_reporter.bat %sharepath% <nul
+cd %sharepath%
 echo Çë¸´ÖÆÎÄ¼ş¶ÔÕÕ¹ØÏµ
 timeout 60
 set /p a=·ÀÎó´¥£¬°´»Ø³µ¼ÌĞø
@@ -29,5 +31,8 @@ call Error_reporter unbug "%Date%-%Time%´íÎó»ã±¨½áÊø ³É¹¦!success!¸ö Ê§°Ü!fail!¸
 call Error_reporter end
 echo.%date%-%time%:ÖØÃüÃûÍê³É ³É¹¦!success!¸ö Ê§°Ü!fail!¸ö ×Ü!filenumber!¸öÎÄ¼ş
 del inputSQLdate.txt
+del Error_reporter.bat
 start Error_reporter.html
+ping 127.0.0.1 -n 5 >nul
+del Error_reporter.html
 timeout 10
